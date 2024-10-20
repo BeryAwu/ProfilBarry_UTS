@@ -1,3 +1,4 @@
+/* Reset dan styling dasar */
 * {
     margin: 0;
     padding: 0;
@@ -11,14 +12,7 @@ body {
     line-height: 1.6;
 }
 
-
-aside, nav {
-    background-image: url('foto\ tengah.jpg');
-    background-size: cover;
-    background-position: center;
-    color: white;
-}
-
+/* Header styling */
 header {
     background-image: url('atas\ sama\ bawah.jpg');
     background-size: cover;
@@ -36,20 +30,18 @@ header h1 {
     color: #ffffff;
 }
 
-nav, aside {
+
+nav {
     float: left;
     width: 25%;
     padding: 15px;
     height: calc(100vh - 140px);
-    background-attachment: fixed; /* This keeps the background fixed while scrolling */
-}
-
-nav {
+    background-image: url('foto\ tengah.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
     border-right: 1px solid rgba(255,255,255,0.2);
-}
-
-aside {
-    border-left: 1px solid rgba(255,255,255,0.2);
 }
 
 nav ul {
@@ -77,6 +69,7 @@ nav ul li a:hover {
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
+/* Main content section styling */
 section {
     float: left;
     width: 50%;
@@ -85,6 +78,20 @@ section {
     background-color: white;
     box-shadow: 0 0 20px rgba(183, 56, 56, 0.1);
     overflow-y: auto;
+}
+
+/* Aside styling */
+aside {
+    float: left;
+    width: 25%;
+    padding: 15px;
+    height: calc(100vh - 140px);
+    background-image: url('foto\ tengah.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+    border-left: 1px solid rgba(255,255,255,0.2);
 }
 
 aside h2 {
@@ -103,11 +110,13 @@ aside ul li {
     padding: 5px 10px;
     border-radius: 3px;
 }
+
+/* Footer styling */
 footer {
-        background-image: url('atas\ sama\ bawah.jpg');
-        background-size: cover;
-        background-position: bottom;
-        color: white;
+    background-image: url('atas\ sama\ bawah.jpg');
+    background-size: cover;
+    background-position: bottom;
+    color: white;
     clear: both;
     padding: 10px;
     text-align: center;
@@ -117,6 +126,8 @@ footer {
     display: flex;
     justify-content: space-between;
 }
+
+/* Overlay for nav, aside, and footer */
 nav::before, aside::before, footer::before {
     content: "";
     position: absolute;
@@ -128,33 +139,28 @@ nav::before, aside::before, footer::before {
     z-index: -1;
 }
 
-/* Ensure the content is above the overlay */
+/* Ensure content is above overlay */
 nav *, aside *, footer * {
     position: relative;
     z-index: 1;
 }
 
-/* Responsive adjustments */
-@media screen and (max-width: 768px) {
-    nav, aside {
-        width: 100%;
-        float: none;
-        height: auto;
-        background-attachment: fixed;
-    }
+/* Content section styling */
+#Content > div {
+    display: none;
 }
 
+#Content > div#biodata {
+    display: block;
+}
 
+h2 {
+    color: #3498db;
+    margin-bottom: 15px;
+}
 
-
-/* ... rest of your existing styles ... */
-
-@media screen and (max-width: 768px) {
-    /* ... existing styles ... */
-    
-    header, footer {
-        background-attachment: fixed; /* This can help with responsive behavior */
-    }
+strong {
+    color: #2c3e50;
 }
 
 /* Responsive design */
@@ -165,22 +171,21 @@ nav *, aside *, footer * {
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 768px) and (max-width: 1024px) {
     /* Tablet Portrait */
-
     nav, section {
-        width: 48%; /* Memberikan sedikit ruang di antara keduanya */
+        width: 48%;
         float: left;
-        height: auto;
+        min-height: calc(100vh - 140px); /* Menyesuaikan tinggi minimum */
     }
     
     section {
-        margin-left: 2%; /* Memberikan sedikit jarak dari nav */
+        margin-left: 2%;
     }
     
     aside {
         width: 100%;
-        clear: both; /* Memastikan aside berada di bawah nav dan section */
+        clear: both;
         float: none;
         height: auto;
     }
@@ -198,11 +203,51 @@ nav *, aside *, footer * {
     nav ul li {
         margin: 5px;
     }
+    
+    header, footer {
+        background-attachment: fixed;
+    }
+
+    /* Menjaga background tetap menutupi seluruh area */
+    nav, section, aside {
+        background-size: cover;
+        background-attachment: scroll; /* Memungkinkan background untuk di-scroll */
+    }
+
+    /* Wrapper untuk nav dan section */
+    .content-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    /* Memastikan tinggi nav dan section sama */
+    .content-wrapper::after {
+        content: '';
+        display: table;
+        clear: both;
+    }
 }
+
 @media screen and (max-width: 480px) {
     /* Smartphone */
     header h1 {
         font-size: 1.5em;
+    }
+    
+    nav, section, aside {
+        width: 100%;
+        float: none;
+        clear: both;
+        margin-left: 0;
+        min-height: auto;
+    }
+    
+    .content-wrapper {
+        display: block;
+    }
+    
+    nav ul {
+        display: block;
     }
     
     nav ul li {
@@ -219,22 +264,4 @@ nav *, aside *, footer * {
         text-align: center;
         padding: 5px 0;
     }
-}
-
-/* Additional styles for content sections */
-#Content > div {
-    display: none;
-}
-
-#Content > div#biodata {
-    display: block;
-}
-
-h2 {
-    color: #3498db;
-    margin-bottom: 15px;
-}
-
-strong {
-    color: #2c3e50;
 }
