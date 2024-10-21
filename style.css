@@ -1,4 +1,4 @@
-/* Reset dan styling dasar */
+
 * {
     margin: 0;
     padding: 0;
@@ -6,13 +6,12 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     color: #333;
     line-height: 1.6;
 }
 
-/* Header styling */
 header {
     background-image: url('atas\ sama\ bawah.jpg');
     background-size: cover;
@@ -69,13 +68,12 @@ nav ul li a:hover {
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
-/* Main content section styling */
 section {
     float: left;
     width: 50%;
     padding: 20px;
     height: calc(100vh - 140px);
-    background-color: rgba(0, 0, 0, 0.5); /* Darker overlay for better contrast */
+    background-color: rgba(0, 0, 0, 0.5);
     background-image: url('gif\ tengah.gif');
     background-repeat: no-repeat;
     background-size: cover;
@@ -83,10 +81,9 @@ section {
     background-attachment: fixed;
     box-shadow: 0 0 20px greenyellow;
     overflow-y: auto;
-    position: relative; /* For positioning the text overlay */
+    position: relative;
 }
 
-/* Text overlay */
 section::before {
     content: "";
     position: absolute;
@@ -94,33 +91,28 @@ section::before {
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay for better text visibility */
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: 1;
 }
 
-/* Ensure all content is above the overlay */
 section > * {
     position: relative;
     z-index: 2;
-    color: white; /* Light text color for better contrast */
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.8); /* Text shadow for better readability */
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
 }
 
-/* Additional styling for headings if needed */
 section h1, section h2, section h3 {
     color: #ffffff;
     font-weight: bold;
     margin-bottom: 15px;
 }
 
-/* Additional styling for paragraphs if needed */
 section p {
     line-height: 1.6;
     margin-bottom: 10px;
 }
 
-
-/* Aside styling */
 aside {
     float: left;
     width: 25%;
@@ -151,7 +143,6 @@ aside ul li {
     border-radius: 3px;
 }
 
-/* Footer styling */
 footer {
     background-image: url('atas\ sama\ bawah.jpg');
     background-size: cover;
@@ -167,7 +158,6 @@ footer {
     justify-content: space-between;
 }
 
-/* Overlay for nav, aside, and footer */
 nav::before, aside::before, footer::before {
     content: "";
     position: absolute;
@@ -179,13 +169,11 @@ nav::before, aside::before, footer::before {
     z-index: -1;
 }
 
-/* Ensure content is above overlay */
 nav *, aside *, footer * {
     position: relative;
     z-index: 1;
 }
 
-/* Content section styling */
 #Content > div {
     display: none;
 }
@@ -200,23 +188,20 @@ h2 {
 }
 
 strong {
-    color: #2c3e50;
+    color: greenyellow;
 }
 
-/* Responsive design */
 @media screen and (max-width: 1024px) {
-    /* Tablet Landscape */
     nav, section, aside {
         width: 33.33%;
     }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
-    /* Tablet Portrait */
     nav, section {
         width: 48%;
         float: left;
-        min-height: calc(100vh - 140px); /* Menyesuaikan tinggi minimum */
+        min-height: calc(100vh - 140px);
     }
     
     section {
@@ -248,19 +233,17 @@ strong {
         background-attachment: fixed;
     }
 
-    /* Menjaga background tetap menutupi seluruh area */
+
     nav, section, aside {
         background-size: cover;
-        background-attachment: scroll; /* Memungkinkan background untuk di-scroll */
+        background-attachment: scroll;
     }
 
-    /* Wrapper untuk nav dan section */
     .content-wrapper {
         display: flex;
         flex-wrap: wrap;
     }
 
-    /* Memastikan tinggi nav dan section sama */
     .content-wrapper::after {
         content: '';
         display: table;
@@ -269,7 +252,7 @@ strong {
 }
 
 @media screen and (max-width: 480px) {
-    /* Smartphone */
+
     header h1 {
         font-size: 1.5em;
     }
