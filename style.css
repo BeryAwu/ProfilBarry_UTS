@@ -75,10 +75,50 @@ section {
     width: 50%;
     padding: 20px;
     height: calc(100vh - 140px);
-    background-color: white;
-    box-shadow: 0 0 20px rgba(183, 56, 56, 0.1);
+    background-color: rgba(0, 0, 0, 0.5); /* Darker overlay for better contrast */
+    background-image: url('gif\ tengah.gif');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    box-shadow: 0 0 20px greenyellow;
     overflow-y: auto;
+    position: relative; /* For positioning the text overlay */
 }
+
+/* Text overlay */
+section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay for better text visibility */
+    z-index: 1;
+}
+
+/* Ensure all content is above the overlay */
+section > * {
+    position: relative;
+    z-index: 2;
+    color: white; /* Light text color for better contrast */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8); /* Text shadow for better readability */
+}
+
+/* Additional styling for headings if needed */
+section h1, section h2, section h3 {
+    color: #ffffff;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Additional styling for paragraphs if needed */
+section p {
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
 
 /* Aside styling */
 aside {
