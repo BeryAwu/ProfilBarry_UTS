@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -12,15 +11,38 @@ body {
     line-height: 1.6;
 }
 
+/* Desktop/Laptop specific styles */
+@media screen and (min-width: 1025px) {
+    body {
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    header {
+        height: 10vh;
+    }
+
+    .content-wrapper {
+        height: 80vh;
+    }
+
+    footer {
+        height: 10vh;
+    }
+}
+
 header {
     background-image: url('atas\ sama\ bawah.jpg');
     background-size: cover;
     background-position: center;
     color: white;
-    padding: 20px;
+    padding: 15px;
     width: 100%;
     text-align: center;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 header h1 {
@@ -29,12 +51,13 @@ header h1 {
     color: #ffffff;
 }
 
+.content-wrapper {
+    display: flex;
+}
 
 nav {
-    float: left;
     width: 25%;
     padding: 15px;
-    height: calc(100vh - 140px);
     background-image: url('foto\ tengah.jpg');
     background-size: cover;
     background-position: center;
@@ -46,10 +69,10 @@ nav {
 nav ul {
     list-style-type: none;
     padding: 0;
-}
-
-nav ul li {
-    margin-bottom: 10px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 nav ul li a {
@@ -69,18 +92,15 @@ nav ul li a:hover {
 }
 
 section {
-    float: left;
     width: 50%;
     padding: 20px;
-    height: calc(100vh - 140px);
     background-color: rgba(0, 0, 0, 0.5);
     background-image: url('gif\ tengah.gif');
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position: center center;
     background-attachment: fixed;
     box-shadow: 0 0 20px greenyellow;
-    overflow-y: auto;
     position: relative;
 }
 
@@ -114,10 +134,8 @@ section p {
 }
 
 aside {
-    float: left;
     width: 25%;
     padding: 15px;
-    height: calc(100vh - 140px);
     background-image: url('foto\ tengah.jpg');
     background-size: cover;
     background-position: center;
@@ -148,14 +166,12 @@ footer {
     background-size: cover;
     background-position: bottom;
     color: white;
-    clear: both;
     padding: 10px;
     text-align: center;
-    position: relative;
-    bottom: 0;
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 nav::before, aside::before, footer::before {
@@ -191,94 +207,74 @@ strong {
     color: greenyellow;
 }
 
+/* Tablet styles */
 @media screen and (max-width: 1024px) {
+    body {
+        height: auto;
+        overflow: auto;
+    }
+
     nav, section, aside {
         width: 33.33%;
     }
+
+    .content-wrapper {
+        min-height: 100vh;
+    }
 }
 
+/* Tablet landscape styles */
 @media screen and (min-width: 768px) and (max-width: 1024px) {
-    nav, section {
-        width: 48%;
-        float: left;
-        min-height: calc(100vh - 140px);
+    .content-wrapper {
+        flex-wrap: wrap;
     }
-    
-    section {
-        margin-left: 2%;
+
+    nav, section {
+        width: 50%;
+        min-height: 60vh;
     }
     
     aside {
         width: 100%;
-        clear: both;
-        float: none;
-        height: auto;
+        min-height: 40vh;
     }
     
     header h1 {
         font-size: 2em;
     }
-    
-    nav ul {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-    }
-    
-    nav ul li {
-        margin: 5px;
-    }
-    
-    header, footer {
-        background-attachment: fixed;
-    }
-
-
-    nav, section, aside {
-        background-size: cover;
-        background-attachment: scroll;
-    }
-
-    .content-wrapper {
-        display: flex;
-        flex-wrap: wrap;
-    }
-
-    .content-wrapper::after {
-        content: '';
-        display: table;
-        clear: both;
-    }
 }
 
-@media screen and (max-width: 480px) {
+/* Mobile styles */
+@media screen and (min-width: 1px) and (max-width: 767px){
+    body {
+        height: auto;
+        overflow: auto;
+    }
+
+    header {
+        height: auto;
+    }
 
     header h1 {
         font-size: 1.5em;
     }
     
-    nav, section, aside {
-        width: 100%;
-        float: none;
-        clear: both;
-        margin-left: 0;
-        min-height: auto;
+    .content-wrapper {
+        flex-direction: column;
+        height: auto;
     }
     
-    .content-wrapper {
-        display: block;
+    nav, section, aside {
+        width: 100%;
+        min-height: 50vh;
     }
     
     nav ul {
-        display: block;
-    }
-    
-    nav ul li {
-        width: 100%;
-        margin: 5px 0;
+        flex-direction: column;
     }
     
     footer {
+        height: auto;
         flex-direction: column;
         align-items: center;
     }
