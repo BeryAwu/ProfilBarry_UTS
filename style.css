@@ -11,7 +11,6 @@ body {
     line-height: 1.6;
 }
 
-/* Desktop/Laptop specific styles */
 @media screen and (min-width: 1025px) {
     body {
         height: 100vh;
@@ -33,8 +32,8 @@ body {
 
 header {
     display: flex;
-    align-items: center; /* Vertikal rata tengah untuk gambar dan teks */
-    justify-content: flex-start; /* Gambar dan teks tetap dalam satu baris */
+    align-items: center;
+    justify-content: flex-start;
     padding: 15px;
     background-image: url('atas\ sama\ bawah.jpg');
     background-size: cover;
@@ -43,7 +42,7 @@ header {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 100%;
-    flex-wrap: nowrap; /* Pastikan tidak membungkus ke bawah */
+    flex-wrap: nowrap; 
 }
 
 header img.profile-photo {
@@ -59,13 +58,13 @@ header img.profile-photo {
 }
 
 header h1 {
-    font-size: 1.2em; /* Perkecil lagi ukuran teks */
+    font-size: 1.2em; 
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     color: #ffffff;
     margin: 0;
     text-align: left;
-    white-space: nowrap; /* Cegah teks agar tidak terbungkus ke bawah */
-    flex-grow: 1; /* Buat teks mengisi ruang yang tersisa */
+    white-space: nowrap;
+    flex-grow: 1;
 }
 
 .content-wrapper {
