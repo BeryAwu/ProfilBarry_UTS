@@ -32,23 +32,40 @@ body {
 }
 
 header {
+    display: flex;
+    align-items: center; /* Vertikal rata tengah untuk gambar dan teks */
+    justify-content: flex-start; /* Gambar dan teks tetap dalam satu baris */
+    padding: 15px;
     background-image: url('atas\ sama\ bawah.jpg');
     background-size: cover;
     background-position: center;
     color: white;
-    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     width: 100%;
-    text-align: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    max-width: 100%;
+    flex-wrap: nowrap; /* Pastikan tidak membungkus ke bawah */
+}
+
+header img.profile-photo {
+    width: 40px;
+    height: 40px;
+    border-radius: 5%;
+    margin-right: 8px;
+    flex-shrink: 0;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
 }
 
 header h1 {
-    font-size: 2.5em;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    font-size: 1.2em; /* Perkecil lagi ukuran teks */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     color: #ffffff;
+    margin: 0;
+    text-align: left;
+    white-space: nowrap; /* Cegah teks agar tidak terbungkus ke bawah */
+    flex-grow: 1; /* Buat teks mengisi ruang yang tersisa */
 }
 
 .content-wrapper {
